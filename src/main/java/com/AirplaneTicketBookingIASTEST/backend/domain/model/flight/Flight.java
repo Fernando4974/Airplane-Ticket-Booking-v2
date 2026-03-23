@@ -21,6 +21,10 @@ public class Flight {
     public BigDecimal price;
 
 
+    public void setFlightStatus(FlightStatus flightStatus) {
+        this.flightStatus = flightStatus;
+    }
+
     public Flight(
             String flightNumber,
             String origin,
@@ -48,6 +52,10 @@ public class Flight {
         this.flightStatus = FlightStatus.ON_TIME;
         this.price = price;
 
+    }
+
+    public String getFlightStatus(){
+        return flightStatus.getDescription();
     }
 }
 

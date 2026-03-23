@@ -1,6 +1,7 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLenghtArguments;
+import com.AirplaneTicketBookingIASTEST.backend.domain.model.booking.Booking;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
 import lombok.Getter;
@@ -14,7 +15,7 @@ public class Ticket {
     private Flight flight;
     private User user;
     private String passengerDNI; //
-    private String booking; // ME falta crear booking
+    private Booking booking; // ME falta crear booking
     private LocalDateTime createdDate;
     private BigDecimal price;
 
@@ -24,7 +25,7 @@ public class Ticket {
             Flight flight,
             User user,
             String passengerDNI,
-            String booking,
+            Booking booking,
             BigDecimal price
 
     ) {

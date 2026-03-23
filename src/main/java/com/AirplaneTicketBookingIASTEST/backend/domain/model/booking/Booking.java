@@ -1,5 +1,6 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.booking;
 
+import com.AirplaneTicketBookingIASTEST.backend.domain.exception.booking.EmptyTicketListException;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket.Ticket;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
@@ -13,7 +14,6 @@ import java.util.Collections;
 import java.util.List;
 
 @Getter
-@NoArgsConstructor
 public class Booking {
     private Long id;
     private User user;
@@ -33,7 +33,10 @@ public class Booking {
     }
 
 
-    public List<Ticket> getTicketList() {
+    public  List<Ticket> getTicketList() {
+        if (this.ticketList.isEmpty()){
+            throw new EmptyTicketListException();
+        }
         return Collections.unmodifiableList(ticketList); // if try update from exit class throw UnsupportedOperationException.
     }
 
@@ -43,6 +46,9 @@ public class Booking {
     }
 
     public BigDecimal getTotalAmount() {
+        if (this.ticketList.isEmpty()){
+            throw new EmptyTicketListException();
+        }
         return ticketList.stream()
                 .map(Ticket::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
