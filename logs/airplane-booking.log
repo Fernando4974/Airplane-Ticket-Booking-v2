@@ -1426,3 +1426,36 @@ Consider defining a bean of type 'com.AirplaneTicketBookingIASTEST.backend.appli
 24/03/2026 05:04:19 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 24/03/2026 05:04:19 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - AirplaneTicketPool - Shutdown initiated...
 24/03/2026 05:04:19 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - AirplaneTicketPool - Shutdown completed.
+24/03/2026 08:00:01 [main] INFO  c.A.backend.BackendApplicationTests - Starting BackendApplicationTests using Java 17.0.18 with PID 12000 (started by Fertch in C:\Users\Fertch\Desktop\A\All\SENA\JAVA\MIDDLE_TEST_V2\backend)
+24/03/2026 08:00:01 [main] INFO  c.A.backend.BackendApplicationTests - No active profile set, falling back to 1 default profile: "default"
+24/03/2026 08:00:01 [main] DEBUG o.s.w.c.s.GenericWebApplicationContext - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5392aa2b
+24/03/2026 08:00:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+24/03/2026 08:00:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 444 ms. Found 3 JPA repository interfaces.
+24/03/2026 08:00:10 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+24/03/2026 08:00:11 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+24/03/2026 08:00:11 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+24/03/2026 08:00:12 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+24/03/2026 08:00:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - AirplaneTicketPool - Starting...
+24/03/2026 08:00:17 [main] INFO  com.zaxxer.hikari.pool.HikariPool - AirplaneTicketPool - Added connection org.postgresql.jdbc.PgConnection@a54ab55
+24/03/2026 08:00:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - AirplaneTicketPool - Start completed.
+24/03/2026 08:00:17 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+24/03/2026 08:00:18 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (AirplaneTicketPool)']
+	Database driver: undefined/unknown
+	Database version: 17.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+24/03/2026 08:00:25 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+24/03/2026 08:00:26 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+24/03/2026 08:00:30 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+24/03/2026 08:00:31 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 5 mappings in 'requestMappingHandlerMapping'
+24/03/2026 08:00:32 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+24/03/2026 08:00:32 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+24/03/2026 08:00:33 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+24/03/2026 08:00:33 [main] INFO  c.A.backend.BackendApplicationTests - Started BackendApplicationTests in 34.76 seconds (process running for 51.309)
+24/03/2026 08:00:34 [SpringApplicationShutdownHook] DEBUG o.s.w.c.s.GenericWebApplicationContext - Closing org.springframework.web.context.support.GenericWebApplicationContext@5392aa2b, started on Tue Mar 24 08:00:01 COT 2026
+24/03/2026 08:00:34 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+24/03/2026 08:00:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - AirplaneTicketPool - Shutdown initiated...
+24/03/2026 08:00:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - AirplaneTicketPool - Shutdown completed.
