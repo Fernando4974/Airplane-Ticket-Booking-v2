@@ -2,11 +2,15 @@ package com.AirplaneTicketBookingIASTEST.backend.domain.model.flight;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.exception.flight.InvalidFlightDateException;
 import com.AirplaneTicketBookingIASTEST.backend.domain.exception.flight.InvalidFlightOccupiedSeats;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Flight {
 
     private Long id;
@@ -18,20 +22,17 @@ public class Flight {
     private Integer totalSeats;
     private Integer occupiedSeats;
     private FlightStatus flightStatus;
-    public BigDecimal price;
+    private BigDecimal price;
 
 
-    public void setFlightStatus(FlightStatus flightStatus) {
-        this.flightStatus = flightStatus;
-    }
 
     public Flight(
+            Long id,
             String flightNumber,
             String origin,
             String destination,
             LocalDateTime leavedTime,
             LocalDateTime arrivedTime,
-            Integer occupiedSeats,
             Integer totalSeats,
             BigDecimal price
 
@@ -41,21 +42,30 @@ public class Flight {
         }
         if (arrivedTime.isBefore(leavedTime))
             throw new InvalidFlightDateException();
-
+        this.id = id;
         this.flightNumber = flightNumber;
         this.origin = origin;
         this.destination = destination;
         this.leavedTime = leavedTime;
         this.arrivedTime = arrivedTime;
         this.totalSeats= totalSeats ;
-        this.occupiedSeats= occupiedSeats;
+        this.occupiedSeats = 0;
         this.flightStatus = FlightStatus.ON_TIME;
         this.price = price;
 
     }
 
-    public String getFlightStatus(){
-        return flightStatus.getDescription();
+    public String getStatusFlightDescription() {
+        return this.flightStatus != null ? this.flightStatus.getDescription() : null;
+    }
+
+    public void setOccupiedSeats(Integer additionalSeats) {
+        int current = (this.occupiedSeats == null) ? 0 : this.occupiedSeats;
+        this.occupiedSeats = current + additionalSeats;
+    }
+
+    public void setFlightStatus(FlightStatus flightStatus) {
+        this.flightStatus = flightStatus;
     }
 }
 
