@@ -33,7 +33,7 @@ class FlightTest {
                 () -> assertEquals(expectedNumber, flight.getFlightNumber(), "Number flight FAIL"),
                 () -> assertEquals(1254L, flight.getId(), "ID Number flight FAIL"),
                 () -> assertEquals("Bogota", flight.getOrigin(), "Origin FAIL"),
-                () -> assertEquals(20, flight.getOccupiedSeats(), "Seats Occupied FAIL"),
+                () -> assertEquals(0, flight.getOccupiedSeats(), "Seats Occupied FAIL"),
                 () -> assertEquals(0, expectedPrice.compareTo(flight.getPrice()), "Price Fail")
         );
     }

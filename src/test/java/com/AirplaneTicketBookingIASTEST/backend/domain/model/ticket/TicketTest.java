@@ -44,9 +44,7 @@ class TicketTest {
         assertAll(()->{
             Ticket ticket = new Ticket(
                     flight,
-                    user,
                     passengerDNI,
-                    booking,
                     price
             );
         });
@@ -73,9 +71,7 @@ class TicketTest {
         assertThrows(InvalidLengthArguments.class, ()->{
             Ticket ticket = new Ticket(
                     flight,
-                    user,
                     passengerDNI,
-                    booking,
                     price
             );
         });

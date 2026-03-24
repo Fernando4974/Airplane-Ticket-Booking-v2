@@ -13,9 +13,7 @@ import java.time.LocalDateTime;
 public class Ticket {
     private Long id;
     private Flight flight;
-    private User user;
     private String passengerDNI; //
-    private Booking booking; // ME falta crear booking
     private LocalDateTime createdDate;
     private BigDecimal price;
 
@@ -23,18 +21,14 @@ public class Ticket {
     public Ticket(
 
             Flight flight,
-            User user,
             String passengerDNI,
-            Booking booking,
             BigDecimal price
 
     ) {
         this.validField( passengerDNI );
 
         this.flight = flight;
-        this.user = user;
         this.passengerDNI = passengerDNI;
-        this.booking = booking;
         this.createdDate = LocalDateTime.now();
         this.price = price;
     }
