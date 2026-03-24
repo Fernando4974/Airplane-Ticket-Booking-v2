@@ -10,11 +10,9 @@ Sistema de gestión de vuelos y reservas desarrollado con **Java 17** y **Spring
 ```
 mvn clean install -DskipTests
 ```
-### 5 EJECUTA
 ```
 mvn test
 ```
-### 6 EJECUTA
 ```
 mvn spring-boot:run
 ```
