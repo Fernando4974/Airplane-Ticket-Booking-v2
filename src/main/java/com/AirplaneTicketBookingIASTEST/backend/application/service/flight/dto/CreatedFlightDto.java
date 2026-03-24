@@ -1,0 +1,44 @@
+package com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Data
+@AllArgsConstructor @NoArgsConstructor
+public class CreatedFlightDto {
+
+    @NotBlank(message = "Id is required")
+    private Long id;
+
+    @NotBlank(message = "Flight number is required")
+    private String flightNumber;
+
+    @NotBlank(message = "Flight origin is required")
+    private String origin;
+
+    @NotBlank(message = "Destination is required")
+    private String destination;
+
+    @NotNull(message = "Leaved  date is required")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime leavedTime;
+
+    @NotNull(message = "Arrived  date is required")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime arrivedTime;
+
+    @NotNull(message = "Total seats is required")
+    private Integer totalSeats;
+    @NotNull(message = "Price is required")
+    @Positive(message = "Price must be positive")
+    private BigDecimal price;
+
+}

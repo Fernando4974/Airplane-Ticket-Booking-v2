@@ -19,20 +19,21 @@ class FlightTest {
         LocalDateTime leaveDate = LocalDateTime.now().plusHours(2);
 
         Flight flight = new Flight(
+                1254L,
                 expectedNumber,
                 "Bogota",
                 "Medellin",
                 leaveDate,
                 leaveDate.plusDays(2),
-                20,
                 40,
                 expectedPrice
         );
 
         assertAll(
                 () -> assertEquals(expectedNumber, flight.getFlightNumber(), "Number flight FAIL"),
+                () -> assertEquals(1254L, flight.getId(), "ID Number flight FAIL"),
                 () -> assertEquals("Bogota", flight.getOrigin(), "Origin FAIL"),
-                () -> assertEquals(20, flight.getOccupiedSeats(), "Seats Occupied FAIL"),
+                () -> assertEquals(0, flight.getOccupiedSeats(), "Seats Occupied FAIL"),
                 () -> assertEquals(0, expectedPrice.compareTo(flight.getPrice()), "Price Fail")
         );
     }
@@ -42,12 +43,12 @@ class FlightTest {
     {
         assertThrows(InvalidFlightOccupiedSeats.class, ()->{
             new Flight(
+                    null,
                     "A204",
                     "Bogota",
                     "Medellin",
                     LocalDateTime.now().plusHours(2),
                     LocalDateTime.now().plusDays(2),
-                    20,
                     -1,
                     new BigDecimal("400.00")
             );
@@ -58,12 +59,12 @@ class FlightTest {
         void ShouldTheowExceptionWhenArrivedTimeIsBeforeToLeavedTime(){
         assertThrows(InvalidFlightDateException.class, ()->{
             new Flight(
+                    null,
                     "405L",
                     "Medellin",
                     "Bogota",
                     LocalDateTime.now(),
                     LocalDateTime.now().minusDays(1),
-                    20,
                     30,
                     new BigDecimal("200.00")
 

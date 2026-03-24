@@ -1,6 +1,7 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket;
 
-import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLenghtArguments;
+import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLengthArguments;
+import com.AirplaneTicketBookingIASTEST.backend.ObjectsMother;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.booking.Booking;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
@@ -18,14 +19,6 @@ class TicketTest {
     @DisplayName("Should Be Create With Correct Values")
     void ShouldBeCreateWithCorrectValues() {
 
-        Flight flight = new Flight("A204",
-                "Bogota",
-                "Medellin",
-                LocalDateTime.now().plusHours(2),
-                LocalDateTime.now().plusDays(2),
-                20,
-                40,
-                new BigDecimal("400.00"));
 
         User user = new User(
                 1L,
@@ -35,16 +28,12 @@ class TicketTest {
                 "password123"
         );
         String passengerDNI = "12363568494";
-        Booking booking = new Booking(user,flight);
         BigDecimal price = new BigDecimal("400000.000");
 
 
         assertAll(()->{
             Ticket ticket = new Ticket(
-                    flight,
-                    user,
                     passengerDNI,
-                    booking,
                     price
             );
         });
@@ -53,14 +42,7 @@ class TicketTest {
     @DisplayName("Should Be Create Without Correct DNI passenger")
     void ShouldNotCreateWithoutCorrectDNIPassenger() {
 
-        Flight flight = new Flight("A204",
-                "Bogota",
-                "Medellin",
-                LocalDateTime.now().plusHours(2),
-                LocalDateTime.now().plusDays(2),
-                20,
-                40,
-                new BigDecimal("400.00"));
+        Flight flight = ObjectsMother.createDefaultFlight();
 
         User user = new User(
                 1L,
@@ -71,16 +53,13 @@ class TicketTest {
         );
 
         String passengerDNI = "DN1".repeat(31);
-        Booking booking = new Booking(user,flight);
+        Booking booking = new Booking(131L,"23645");
         BigDecimal price = new BigDecimal("400000.000");
 
 
-        assertThrows(InvalidLenghtArguments.class, ()->{
+        assertThrows(InvalidLengthArguments.class, ()->{
             Ticket ticket = new Ticket(
-                    flight,
-                    user,
                     passengerDNI,
-                    booking,
                     price
             );
         });

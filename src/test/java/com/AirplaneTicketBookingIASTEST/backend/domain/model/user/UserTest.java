@@ -1,6 +1,6 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.user;
 
-import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLenghtArguments;
+import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLengthArguments;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -31,7 +31,7 @@ class UserTest {
     @DisplayName("Should Not created if password is more long than 30")
     void ShouldThrowExceptionWhenPasswordIsTooLong(){
         UserEmail userEmail = new UserEmail("fernando@fer.com");
-        assertThrows(InvalidLenghtArguments.class,()->
+        assertThrows(InvalidLengthArguments.class,()->
                 new User(
                         1L,
                         "Fernando",

@@ -1,14 +1,16 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.user;
 
-import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLenghtArguments;
+import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLengthArguments;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class User {
    private Long id;
    private String name;
    private String lastname;// refactor Object Value
-   private UserEmail email; // primer Object Value que hago :,)
+   private UserEmail email; // primer ObjectValue que hago :,)
    private String password;
 
     public User(
@@ -30,7 +32,7 @@ public class User {
     }
     private void validateField(String value, String fieldValue){
         if (value == null || value.isBlank() || value.length() > 30 ){
-            throw new InvalidLenghtArguments(fieldValue);
+            throw new InvalidLengthArguments(fieldValue);
         }
 
     }
