@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class FoundFlightDto extends CreateFlightDto {
+public class FoundFlightDtoRequest extends RequestCreateFlightDto {
     private Long id;
     private FlightStatus flightStatus;
     private Integer occupiedSeats;
 
-    public FoundFlightDto(
+    public FoundFlightDtoRequest(
             Long id,
             String flightNumber,
             String origin,

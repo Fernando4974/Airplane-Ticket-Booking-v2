@@ -1,7 +1,8 @@
-package com.AirplaneTicketBookingIASTEST.backend.application.port.in.flight;
+package com.AirplaneTicketBookingIASTEST.backend.application.port.flight;
 
-import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
+import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.CreatedFlightDto;
+import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.RequestCreateFlightDto;
 
 public interface CreateFlightUseCase {
-    Flight execute(Flight flight);
+  CreatedFlightDto execute(RequestCreateFlightDto requestCreateFlightDto);
 }

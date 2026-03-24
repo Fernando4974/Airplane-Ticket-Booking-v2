@@ -18,23 +18,23 @@ public class ObjectsMother {
       return new User(id,name,lastname,userEmail,password);
     }
     public static Flight createDefaultFlight(){
+        Long id= 122L;
         String flightNumber = "A204";
         String origin = "Bogota";
         String destination = "Medellin";
         LocalDateTime leavedTime = LocalDateTime.now().plusHours(2);
         LocalDateTime arrivedTime = LocalDateTime.now().plusDays(2);
-        Integer occupiedSeats = 20;
         Integer totalSeats = 40;
         BigDecimal price = new BigDecimal("400000.00");
 
 
         return new Flight(
+                id,
                 flightNumber,
                 origin,
                 destination,
                 leavedTime,
                 arrivedTime,
-                occupiedSeats,
                 totalSeats,
                 price
         );

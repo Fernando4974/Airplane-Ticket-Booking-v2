@@ -1,4 +1,4 @@
-package com.AirplaneTicketBookingIASTEST.backend.application.port.in.flight;
+package com.AirplaneTicketBookingIASTEST.backend.application.port.flight;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 

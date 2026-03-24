@@ -1,7 +1,7 @@
 package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPort;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortIn;
 import com.AirplaneTicketBookingIASTEST.backend.infrastructure.persistence.JpaFlightRepository;
 import com.AirplaneTicketBookingIASTEST.backend.infrastructure.persistence.entities.FlightEntity;
 import lombok.RequiredArgsConstructor;
@@ -12,26 +12,41 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class JpaFlightImpl implements FlightRepositoryPort {
-    private JpaFlightRepository jpaFlightRepository;
+public class JpaFlightImplIn implements FlightRepositoryPortIn {
+    private final JpaFlightRepository jpaFlightRepository;
 
 
     @Override
     public Flight save(Flight flight){
 
        final FlightEntity flightEntity = new FlightEntity(
-                flight.getId(),
+                null,
                 flight.getFlightNumber(),
                 flight.getOrigin(),
                 flight.getDestination(),
                 flight.getLeavedTime(),
                 flight.getArrivedTime(),
-                flight.getPrice(),
-                flight.getTotalSeats()
+               flight.getTotalSeats(),
+                flight.getPrice()
+
 
         );
         FlightEntity flightEntitySaved = jpaFlightRepository.save(flightEntity);
-     return ;
+        return new Flight(
+                flightEntitySaved.getId(),
+                flightEntitySaved.getFlightNumber(),
+                flightEntitySaved.getOrigin(),
+                flightEntitySaved.getDestination(),
+                flightEntitySaved.getLeavedTime(),
+                flightEntitySaved.getArrivedTime(),
+                flightEntitySaved.getTotalSeats(),
+                flightEntitySaved.getPrice()
+
+        );
+
+
+
+
     }
 
     @Override

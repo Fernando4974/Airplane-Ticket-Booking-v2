@@ -1,4 +1,8 @@
 package com.AirplaneTicketBookingIASTEST.backend.application.port.flight;
 
-public interface FindFlightByFlightNumberUsaCase {
+import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.FoundFlightDtoRequest;
+
+public interface FindFlightByFlightNumberUseCase {
+
+    public FoundFlightDtoRequest findByFlightNumber(String id);
 }

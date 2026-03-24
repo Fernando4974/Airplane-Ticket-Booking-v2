@@ -1,5 +1,6 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.flight;
 
+import com.AirplaneTicketBookingIASTEST.backend.domain.model.ObjectsMother;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,36 +14,27 @@ class FlightStatusTest {
     @Test
     @DisplayName("Should Return True If Status Flight Is ON_TIME")
     void ShouldReturnTrueIfStatusFlightIsON_TIME(){
-       Flight flight = new Flight(
-               "405L",
-               "Medellin",
-               "Bogota",
-               LocalDateTime.now(),
-               LocalDateTime.now().plusDays(2),
-               20,
-               30,
-               new BigDecimal("200.00")
+       Flight flight = ObjectsMother.createDefaultFlight();
 
-       );
-        assertEquals("On time", flight.getFlightStatus());
+        assertEquals(FlightStatus.ON_TIME, flight.getFlightStatus());
     }
     @Test
-    @DisplayName("Should Return True If Status Flight Is ON_TIME")
-    void ShouldReturnFalseIfStatusFlightIsNotON_TIME(){
+    @DisplayName("Should be modify flight status")
+    void ShouldBeModifyFlightStatus(){
         Flight flight = new Flight(
+                4051L,
                 "405L",
                 "Medellin",
                 "Bogota",
                 LocalDateTime.now(),
                 LocalDateTime.now().plusDays(2),
-                20,
                 30,
                 new BigDecimal("200.00")
 
         );
         flight.setFlightStatus(FlightStatus.CANCELLED);
 
-        assertEquals("Canceled", flight.getFlightStatus());
+        assertEquals(FlightStatus.CANCELLED, flight.getFlightStatus());
     }
 
 }

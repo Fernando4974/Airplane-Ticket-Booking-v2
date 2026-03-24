@@ -8,7 +8,7 @@ public class User {
    private Long id;
    private String name;
    private String lastname;// refactor Object Value
-   private UserEmail email; // primer Object Value que hago :,)
+   private UserEmail email; // primer ObjectValue que hago :,)
    private String password;
 
     public User(

@@ -1,6 +1,7 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLenghtArguments;
+import com.AirplaneTicketBookingIASTEST.backend.domain.model.ObjectsMother;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.booking.Booking;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
@@ -18,12 +19,13 @@ class TicketTest {
     @DisplayName("Should Be Create With Correct Values")
     void ShouldBeCreateWithCorrectValues() {
 
-        Flight flight = new Flight("A204",
+        Flight flight = new Flight(
+                445L,
+                "A204",
                 "Bogota",
                 "Medellin",
                 LocalDateTime.now().plusHours(2),
                 LocalDateTime.now().plusDays(2),
-                20,
                 40,
                 new BigDecimal("400.00"));
 
@@ -53,14 +55,7 @@ class TicketTest {
     @DisplayName("Should Be Create Without Correct DNI passenger")
     void ShouldNotCreateWithoutCorrectDNIPassenger() {
 
-        Flight flight = new Flight("A204",
-                "Bogota",
-                "Medellin",
-                LocalDateTime.now().plusHours(2),
-                LocalDateTime.now().plusDays(2),
-                20,
-                40,
-                new BigDecimal("400.00"));
+        Flight flight = ObjectsMother.createDefaultFlight();
 
         User user = new User(
                 1L,
