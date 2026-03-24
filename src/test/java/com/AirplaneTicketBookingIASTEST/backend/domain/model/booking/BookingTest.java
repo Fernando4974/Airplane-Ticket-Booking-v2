@@ -1,14 +1,12 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.booking;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.exception.booking.EmptyTicketListException;
-import com.AirplaneTicketBookingIASTEST.backend.domain.model.ObjectsMother;
+import com.AirplaneTicketBookingIASTEST.backend.ObjectsMother;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
-import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.UserEmail;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 

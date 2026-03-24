@@ -1,7 +1,7 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket;
 
-import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLenghtArguments;
-import com.AirplaneTicketBookingIASTEST.backend.domain.model.ObjectsMother;
+import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLengthArguments;
+import com.AirplaneTicketBookingIASTEST.backend.ObjectsMother;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.booking.Booking;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
@@ -70,7 +70,7 @@ class TicketTest {
         BigDecimal price = new BigDecimal("400000.000");
 
 
-        assertThrows(InvalidLenghtArguments.class, ()->{
+        assertThrows(InvalidLengthArguments.class, ()->{
             Ticket ticket = new Ticket(
                     flight,
                     user,

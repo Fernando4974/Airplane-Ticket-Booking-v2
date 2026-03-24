@@ -14,7 +14,7 @@ public class FindByFlightNumberService implements FindFlightByFlightNumberUseCas
     private final FlightRepositoryPortIn flightRepositoryPortIn;
 
     @Override
-    public FoundFlightDtoRequest findByFlightNumber(String flightNumber){
+    public FoundFlightDtoRequest execute(String flightNumber){
 
         Flight foundFlight = this.flightRepositoryPortIn.findByFlightNumber(flightNumber)
                 .orElseThrow(()-> new FlightException("Flight not found"));

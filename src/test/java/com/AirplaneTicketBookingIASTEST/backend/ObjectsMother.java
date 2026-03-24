@@ -1,5 +1,7 @@
-package com.AirplaneTicketBookingIASTEST.backend.domain.model;
+package com.AirplaneTicketBookingIASTEST.backend;
 
+import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.CreatedFlightDto;
+import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.RequestCreateFlightDto;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.UserEmail;
@@ -18,8 +20,8 @@ public class ObjectsMother {
       return new User(id,name,lastname,userEmail,password);
     }
     public static Flight createDefaultFlight(){
-        Long id= 122L;
-        String flightNumber = "A204";
+        Long id= 1L;
+        String flightNumber = "AV123";
         String origin = "Bogota";
         String destination = "Medellin";
         LocalDateTime leavedTime = LocalDateTime.now().plusHours(2);
@@ -37,6 +39,17 @@ public class ObjectsMother {
                 arrivedTime,
                 totalSeats,
                 price
+        );
+    }
+    public static RequestCreateFlightDto createDefaultRequestCreateFlightDto(){
+        return new RequestCreateFlightDto(
+                "AV123",
+                "BOG",
+                "MAD",
+                LocalDateTime.now(),
+                LocalDateTime.now().plusHours(10),
+                150,
+                new BigDecimal("500.00")
         );
     }
 }

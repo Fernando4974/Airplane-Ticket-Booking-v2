@@ -1,6 +1,6 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.flight;
 
-import com.AirplaneTicketBookingIASTEST.backend.domain.model.ObjectsMother;
+import com.AirplaneTicketBookingIASTEST.backend.ObjectsMother;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

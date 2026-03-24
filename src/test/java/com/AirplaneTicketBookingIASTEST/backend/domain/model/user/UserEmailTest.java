@@ -1,6 +1,6 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.user;
 
-import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLenghtArguments;
+import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLengthArguments;
 import com.AirplaneTicketBookingIASTEST.backend.domain.exception.user.InvalidEmailException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ class UserEmailTest {
     @Test
     @DisplayName("Should throw exception when email is too lenght")
     void ShouldThrowExceptionWhenEmailIsToLong(){
-        assertThrows(InvalidLenghtArguments.class, ()->{
+        assertThrows(InvalidLengthArguments.class, ()->{
             new UserEmail("OnlyCreatedByTestingReason@email.com");
         });
     }

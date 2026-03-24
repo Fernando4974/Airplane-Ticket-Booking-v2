@@ -1,6 +1,6 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket;
 
-import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLenghtArguments;
+import com.AirplaneTicketBookingIASTEST.backend.domain.exception.InvalidLengthArguments;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.booking.Booking;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
@@ -46,7 +46,7 @@ public class Ticket {
     private void validField(String value){
 
         if (value == null || value.isBlank() || value.length() > 30)
-            throw  new InvalidLenghtArguments("Passenger DIN");
+            throw  new InvalidLengthArguments("Passenger DIN");
 
     }
 }

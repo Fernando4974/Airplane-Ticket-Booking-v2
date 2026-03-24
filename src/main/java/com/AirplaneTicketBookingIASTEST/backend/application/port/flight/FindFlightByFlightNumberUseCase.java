@@ -4,5 +4,5 @@ import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.F
 
 public interface FindFlightByFlightNumberUseCase {
 
-    public FoundFlightDtoRequest findByFlightNumber(String id);
+    public FoundFlightDtoRequest execute(String id);
 }

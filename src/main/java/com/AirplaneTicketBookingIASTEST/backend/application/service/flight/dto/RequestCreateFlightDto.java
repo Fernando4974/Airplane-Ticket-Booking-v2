@@ -1,5 +1,6 @@
 package com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -28,9 +29,11 @@ public class RequestCreateFlightDto {
     private String destination;
 
     @NotNull(message = "Leaved  date is required")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime leavedTime;
 
     @NotNull(message = "Arrived  date is required")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime arrivedTime;
 
     @NotNull(message = "Total seats is required")
