@@ -2,23 +2,23 @@
 
 Sistema de gestión de vuelos y reservas desarrollado con **Java 17** y **Spring Boot 3.4.3**. El proyecto aplica principios de **Arquitectura Hexagonal** y **Clean Code** para garantizar un sistema escalable, mantenible y testeable.
 
-PASOS PARA INICIAR EN EL IDE DE INTELLIJ
-# 1   CLONA EL REPO
-# 2   EN EL IDE ABRE LA CARPETA
-# 3   CONFIGURA LAS VALIABLE DE ENTORNO INTERNAMENTE EN EL ID (ESTAN EL .doc)
-# 4   EJECUTA 
+# PASOS PARA INICIAR EN EL IDE DE INTELLIJ
+## 1   CLONA EL REPO
+## 2   EN EL IDE ABRE LA CARPETA
+## 3   CONFIGURA LAS VALIABLE DE ENTORNO INTERNAMENTE EN EL ID (ESTAN EL .doc)
+### 4   EJECUTA 
 ```
 mvn clean install -DskipTests
 ```
-# 5 EJECUTA
+### 5 EJECUTA
 ```
 mvn test
 ```
-# 6 EJECUTA
+### 6 EJECUTA
 ```
 mvn spring-boot:run
 ```
-# POSTMAN
+## POSTMAN
 ## Post
 ## http://localhost:8085/airline/flight/save
 ```
