@@ -1,11 +1,8 @@
 package com.AirplaneTicketBookingIASTEST.backend.domain.model.booking;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.exception.booking.EmptyTicketListException;
-import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket.Ticket;
-import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,18 +13,18 @@ import java.util.List;
 @Getter
 public class Booking {
     private Long id;
-    private User user;
-    private Flight flight;
+    private Long userId;
+    private String flightNumber;
     private List<Ticket> ticketList = new ArrayList<>();
     private LocalDateTime bookingDate;
     private BookingStatus bookingStatus;
 
-    public Booking(User user, Flight flight) {
+    public Booking(Long userId, String flightNumber) {
 
-        if (user == null || flight == null) throw new IllegalArgumentException("User and Flight are required");
+        if (userId <= 0 || flightNumber.isEmpty()) throw new IllegalArgumentException("User and Flight are required");
 
-        this.user = user;
-        this.flight = flight;
+        this.userId = userId;
+        this.flightNumber = flightNumber;
         this.bookingDate = LocalDateTime.now();
         this.bookingStatus = BookingStatus.PENDING;
     }

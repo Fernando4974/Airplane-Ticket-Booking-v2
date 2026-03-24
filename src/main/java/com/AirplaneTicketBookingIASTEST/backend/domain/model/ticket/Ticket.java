@@ -12,22 +12,21 @@ import java.time.LocalDateTime;
 @Getter
 public class Ticket {
     private Long id;
-    private Flight flight;
     private String passengerDNI; //
     private LocalDateTime createdDate;
     private BigDecimal price;
 
 
+
     public Ticket(
 
-            Flight flight,
+
             String passengerDNI,
             BigDecimal price
 
     ) {
         this.validField( passengerDNI );
 
-        this.flight = flight;
         this.passengerDNI = passengerDNI;
         this.createdDate = LocalDateTime.now();
         this.price = price;
