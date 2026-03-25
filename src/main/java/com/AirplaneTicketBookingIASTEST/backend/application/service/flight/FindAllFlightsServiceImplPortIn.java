@@ -3,22 +3,22 @@ package com.AirplaneTicketBookingIASTEST.backend.application.service.flight;
 import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.FindAllFlightsUseCase;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.FoundFlightDtoRequest;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class FindAllFlightsService implements FindAllFlightsUseCase {
-    private final FlightRepositoryPortIn flightRepositoryPortIn;
+    private final FlightRepositoryPortOut flightRepositoryPortOut;
 
-    public FindAllFlightsService(FlightRepositoryPortIn flightRepositoryPortIn) {
-        this.flightRepositoryPortIn = flightRepositoryPortIn;
+    public FindAllFlightsService(FlightRepositoryPortOut flightRepositoryPortOut) {
+        this.flightRepositoryPortOut = flightRepositoryPortOut;
     }
 
     @Override
     public List<FoundFlightDtoRequest> findAll() {
 
-        List<Flight> flightList = this.flightRepositoryPortIn.findAll();
+        List<Flight> flightList = this.flightRepositoryPortOut.findAll();
 
         return flightList.stream()
                 .map(

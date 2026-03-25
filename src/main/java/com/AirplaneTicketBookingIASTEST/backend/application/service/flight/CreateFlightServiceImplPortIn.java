@@ -5,7 +5,7 @@ import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.CreateFl
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.CreatedFlightDto;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.RequestCreateFlightDto;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,14 +15,14 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class CreateFlightService implements CreateFlightUseCase {
 
-    private final FlightRepositoryPortIn flightRepositoryPortIn;
+    private final FlightRepositoryPortOut flightRepositoryPortOut;
 
 
     @Override
     public CreatedFlightDto execute(RequestCreateFlightDto requestCreateFlightDto){
 
         log.info("INITIALIZING TRANSACTION / Create Flight");
-      flightRepositoryPortIn.findByFlightNumber(requestCreateFlightDto.getFlightNumber())
+      flightRepositoryPortOut.findByFlightNumber(requestCreateFlightDto.getFlightNumber())
                 .ifPresent( exist -> {
                     log.warn("TRANSACTION FAIL: NumberFlight : {} , is already exist",
                              requestCreateFlightDto.getFlightNumber());
@@ -41,7 +41,7 @@ public class CreateFlightService implements CreateFlightUseCase {
                   requestCreateFlightDto.getTotalSeats(),
                   requestCreateFlightDto.getPrice()
           );
-          Flight savedFlight = flightRepositoryPortIn.save(flight);
+          Flight savedFlight = flightRepositoryPortOut.save(flight);
           log.info("TRANSACTION COMPLETED / Flight #{} TO {}, IS SAVED"
                   , requestCreateFlightDto.getFlightNumber()
                   , requestCreateFlightDto.getDestination());

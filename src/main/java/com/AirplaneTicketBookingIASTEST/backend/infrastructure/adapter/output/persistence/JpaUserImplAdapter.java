@@ -3,7 +3,7 @@ package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter;
 import com.AirplaneTicketBookingIASTEST.backend.application.exception.UserException;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.UserEmail;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.UserRepositoryPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.UserRepositoryPortOut;
 import com.AirplaneTicketBookingIASTEST.backend.infrastructure.persistence.JpaUserRepository;
 import com.AirplaneTicketBookingIASTEST.backend.infrastructure.persistence.entities.UserEntity;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Component
 @AllArgsConstructor
-public class JpaUserImplIn implements UserRepositoryPortIn {
+public class JpaUserImplAdapter implements UserRepositoryPortOut {
     private final JpaUserRepository jpaUserRepository;
 
 

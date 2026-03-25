@@ -6,7 +6,7 @@ import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.UserEmail;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepositoryPortIn {
+public interface UserRepositoryPortOn {
     User save(User user);
     List<User> findAll();
     Optional<User> findById(Long id);

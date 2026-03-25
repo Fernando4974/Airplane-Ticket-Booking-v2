@@ -5,7 +5,7 @@ import com.AirplaneTicketBookingIASTEST.backend.application.exception.FlightExce
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.CreatedFlightDto;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.RequestCreateFlightDto;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ import static org.mockito.Mockito.*;
     class CreateFlightServiceTest {
 
         @Mock
-        private FlightRepositoryPortIn flightRepositoryPortIn;
+        private FlightRepositoryPortOut flightRepositoryPortOut;
 
         @InjectMocks
         private CreateFlightService createFlightService;
@@ -42,10 +42,10 @@ import static org.mockito.Mockito.*;
         @DisplayName("Should create a flight successfully when flight number is unique")
         void execute_Success() {
 
-            when(flightRepositoryPortIn.findByFlightNumber(requestDto.getFlightNumber()))
+            when(flightRepositoryPortOut.findByFlightNumber(requestDto.getFlightNumber()))
                     .thenReturn(Optional.empty());
 
-            when(flightRepositoryPortIn.save(any(Flight.class)))
+            when(flightRepositoryPortOut.save(any(Flight.class)))
                     .thenReturn(flightEntity);
 
 
@@ -56,15 +56,15 @@ import static org.mockito.Mockito.*;
             assertEquals(1L, result.getId());
             assertEquals("AV123", result.getFlightNumber());
 
-            verify(flightRepositoryPortIn, times(1)).findByFlightNumber("AV123");
-            verify(flightRepositoryPortIn, times(1)).save(any(Flight.class));
+            verify(flightRepositoryPortOut, times(1)).findByFlightNumber("AV123");
+            verify(flightRepositoryPortOut, times(1)).save(any(Flight.class));
         }
 
         @Test
         @DisplayName("Should throw FlightException when flight number already exists")
         void execute_ThrowsException_WhenFlightExists() {
 
-            when(flightRepositoryPortIn.findByFlightNumber(requestDto.getFlightNumber()))
+            when(flightRepositoryPortOut.findByFlightNumber(requestDto.getFlightNumber()))
                     .thenReturn(Optional.of(flightEntity));
 
 
@@ -74,6 +74,6 @@ import static org.mockito.Mockito.*;
 
             assertEquals("User Exception: Flight is already Exist with same flight number", exception.getMessage());
 
-            verify(flightRepositoryPortIn, never()).save(any(Flight.class));
+            verify(flightRepositoryPortOut, never()).save(any(Flight.class));
         }
     }

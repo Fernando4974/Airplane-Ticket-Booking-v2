@@ -1,7 +1,7 @@
 package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;
 import com.AirplaneTicketBookingIASTEST.backend.infrastructure.persistence.JpaFlightRepository;
 import com.AirplaneTicketBookingIASTEST.backend.infrastructure.persistence.entities.FlightEntity;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class JpaFlightImplIn implements FlightRepositoryPortIn {
+public class JpaFlightImplAdapter implements FlightRepositoryPortOut {
     private final JpaFlightRepository jpaFlightRepository;
 
 

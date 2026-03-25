@@ -4,19 +4,19 @@ import com.AirplaneTicketBookingIASTEST.backend.application.exception.FlightExce
 import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.FindFlightByFlightNumberUseCase;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.FoundFlightDtoRequest;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class FindByFlightNumberService implements FindFlightByFlightNumberUseCase {
-    private final FlightRepositoryPortIn flightRepositoryPortIn;
+public class FindByFlightNumberServiceImpl implements FindFlightByFlightNumberUseCase {
+    private final FlightRepositoryPortOut flightRepositoryPortOut;
 
     @Override
     public FoundFlightDtoRequest execute(String flightNumber){
 
-        Flight foundFlight = this.flightRepositoryPortIn.findByFlightNumber(flightNumber)
+        Flight foundFlight = this.flightRepositoryPortOut.findByFlightNumber(flightNumber)
                 .orElseThrow(()-> new FlightException("Flight not found"));
 
         return new FoundFlightDtoRequest(

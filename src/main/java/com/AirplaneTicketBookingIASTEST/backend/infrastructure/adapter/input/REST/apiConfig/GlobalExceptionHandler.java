@@ -1,4 +1,4 @@
-package com.AirplaneTicketBookingIASTEST.backend.infrastructure.REST.ApiConfig;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.controllers.ApiConfig;
 
 import com.AirplaneTicketBookingIASTEST.backend.application.exception.FlightException;
 import com.AirplaneTicketBookingIASTEST.backend.application.exception.UserException;

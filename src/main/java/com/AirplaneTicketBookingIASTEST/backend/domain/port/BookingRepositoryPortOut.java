@@ -5,7 +5,7 @@ import com.AirplaneTicketBookingIASTEST.backend.domain.model.booking.Booking;
 import java.util.List;
 import java.util.Optional;
 
-public interface BookingRepositoryPortIn {
+public interface BookingRepositoryPortOn {
     Booking save(Booking booking);
     Optional<Booking>FindById(Long id);
     List<Booking>FindAll();
