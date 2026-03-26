@@ -21,13 +21,13 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
     @ExtendWith(MockitoExtension.class)
-    class CreateFlightServiceTest {
+    class CreateFlightServiceImplTest {
 
         @Mock
         private FlightRepositoryPortOut flightRepositoryPortOut;
 
         @InjectMocks
-        private CreateFlightService createFlightService;
+        private CreateFlightServiceImplPortIn createFlightServiceImpl;
 
         private RequestCreateFlightDto requestDto;
         private Flight flightEntity;
@@ -49,7 +49,7 @@ import static org.mockito.Mockito.*;
                     .thenReturn(flightEntity);
 
 
-            CreatedFlightDto result = createFlightService.execute(requestDto);
+            CreatedFlightDto result = createFlightServiceImpl.execute(requestDto);
 
 
             assertNotNull(result);
@@ -69,7 +69,7 @@ import static org.mockito.Mockito.*;
 
 
             FlightException exception = assertThrows(FlightException.class, () -> {
-                createFlightService.execute(requestDto);
+                createFlightServiceImpl.execute(requestDto);
             });
 
             assertEquals("User Exception: Flight is already Exist with same flight number", exception.getMessage());

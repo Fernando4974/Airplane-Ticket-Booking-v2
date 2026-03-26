@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -62,6 +64,9 @@ public class Flight {
     public void setOccupiedSeats(Integer additionalSeats) {
         int current = (this.occupiedSeats == null) ? 0 : this.occupiedSeats;
         this.occupiedSeats = current + additionalSeats;
+    }
+    public void generateFlightNumber(){
+        this.flightNumber = "TKT-"+ UUID.randomUUID().toString().substring(0,8);
     }
 
     public void setFlightStatus(FlightStatus flightStatus) {

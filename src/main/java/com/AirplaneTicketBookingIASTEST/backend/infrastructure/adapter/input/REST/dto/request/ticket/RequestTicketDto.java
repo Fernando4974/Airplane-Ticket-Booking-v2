@@ -1,4 +1,4 @@
-package com.AirplaneTicketBookingIASTEST.backend.application.service.ticket.dto;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.dto.request.ticket;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface TicketRepositoryPortOn {
+public interface TicketRepositoryPortOut {
     Ticket save(Ticket ticket);
     Optional<Ticket> findById();
-    Optional<Ticket> findByTicketCode(String flightNumber);
+    Optional<Ticket> findByTicketCode(String ticketCode);
     List<Ticket> findAll();
     Ticket update(Ticket ticket);
 }

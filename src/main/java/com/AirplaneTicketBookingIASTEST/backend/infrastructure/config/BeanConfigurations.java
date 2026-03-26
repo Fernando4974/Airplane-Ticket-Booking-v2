@@ -1,29 +1,35 @@
 package com.AirplaneTicketBookingIASTEST.backend.infrastructure.config;
 
-import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.CreateFlightUseCase;
-import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.FindFlightByFlightNumberUseCase;
+import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.CreateFlightUseCasePortIn;
+import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.FindFlightByFlightNumberUseCasePortIn;
+import com.AirplaneTicketBookingIASTEST.backend.application.port.ticket.TicketUseCasesPortIn;
 import com.AirplaneTicketBookingIASTEST.backend.application.port.user.UserUseCases;
-import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.CreateFlightService;
-import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.FindByFlightNumberService;
+import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.CreateFlightServiceImplPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.FindByFlightNumberServiceImplPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.application.service.ticket.TicketServicesImplPortIn;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.user.UserServices;
-import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortIn;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.UserRepositoryPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.TicketRepositoryPortOut;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.UserRepositoryPortOut;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanConfigurations {
     @Bean
-    public CreateFlightUseCase createFlightUseCase(FlightRepositoryPortIn flightRepositoryPortIn){
-        return new CreateFlightService(flightRepositoryPortIn);
+    public CreateFlightUseCasePortIn createFlightUseCase(FlightRepositoryPortOut flightRepositoryPortOut){
+        return new CreateFlightServiceImplPortIn(flightRepositoryPortOut);
     }
     @Bean
-    public FindFlightByFlightNumberUseCase findFlightByFlightNumberUseCase(FlightRepositoryPortIn flightRepositoryPortIn){
-        return new FindByFlightNumberService(flightRepositoryPortIn);
+    public FindFlightByFlightNumberUseCasePortIn findFlightByFlightNumberUseCase(FlightRepositoryPortOut flightRepositoryPortOut){
+        return new FindByFlightNumberServiceImplPortIn(flightRepositoryPortOut);
     }
     @Bean
-    public UserUseCases userUseCases(UserRepositoryPortIn userRepositoryPortIn){
-        return new UserServices(userRepositoryPortIn);
+    public UserUseCases userUseCases(UserRepositoryPortOut userRepositoryPortOut){
+        return new UserServices(userRepositoryPortOut);
+    }
+    @Bean
+    TicketUseCasesPortIn ticketUseCases(TicketRepositoryPortOut ticketRepositoryPortOut){
+        return new TicketServicesImplPortIn(ticketRepositoryPortOut);
     }
 }

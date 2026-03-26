@@ -6,17 +6,17 @@ import com.AirplaneTicketBookingIASTEST.backend.application.service.user.dto.Req
 import com.AirplaneTicketBookingIASTEST.backend.application.service.user.dto.ResponseUserDto;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.User;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.user.UserEmail;
-import com.AirplaneTicketBookingIASTEST.backend.domain.port.UserRepositoryPortIn;
+import com.AirplaneTicketBookingIASTEST.backend.domain.port.UserRepositoryPortOut;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
 public class UserServices implements UserUseCases {
-    public final UserRepositoryPortIn userRepositoryPortIn;
+    public final UserRepositoryPortOut userRepositoryPortOut;
 
-    public UserServices(UserRepositoryPortIn userRepositoryPortIn) {
-        this.userRepositoryPortIn = userRepositoryPortIn;
+    public UserServices(UserRepositoryPortOut userRepositoryPortOut) {
+        this.userRepositoryPortOut = userRepositoryPortOut;
     }
 
 
@@ -24,7 +24,7 @@ public class UserServices implements UserUseCases {
     public ResponseUserDto createUser(RequestCreateUserDto requestCreateUserDto) {
         log.info("INITIALISING TRANSACTION / CREATE USER ");
         try {
-         userRepositoryPortIn.findByEmail(requestCreateUserDto.getEmail()).
+         userRepositoryPortOut.findByEmail(requestCreateUserDto.getEmail()).
                  ifPresent(user -> {
                      log.warn("TRANSACTION FAIL / Email {} is already exist",
                              requestCreateUserDto.getEmail());
@@ -38,7 +38,7 @@ public class UserServices implements UserUseCases {
                 requestCreateUserDto.getPassword()
         );
 
-            User userSaved = this.userRepositoryPortIn.save(user);
+            User userSaved = this.userRepositoryPortOut.save(user);
 
             return new ResponseUserDto(
                     userSaved.getId(),
@@ -59,7 +59,7 @@ public class UserServices implements UserUseCases {
       log.info("INITIALISING TRANSACTION / find user by email");
       UserEmail emailFormated = new UserEmail(email);
       try {
-          User user = this.userRepositoryPortIn.findByEmail(emailFormated).orElseThrow(
+          User user = this.userRepositoryPortOut.findByEmail(emailFormated).orElseThrow(
                   ()-> new UserException("User Not found")
 
           );

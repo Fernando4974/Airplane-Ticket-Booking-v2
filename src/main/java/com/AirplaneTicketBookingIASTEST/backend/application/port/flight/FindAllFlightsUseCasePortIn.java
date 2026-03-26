@@ -4,6 +4,6 @@ import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.F
 
 import java.util.List;
 
-public interface FindAllFlightsUseCase {
+public interface FindAllFlightsUseCasePortIn {
     List<FoundFlightDtoRequest> findAll();
 }

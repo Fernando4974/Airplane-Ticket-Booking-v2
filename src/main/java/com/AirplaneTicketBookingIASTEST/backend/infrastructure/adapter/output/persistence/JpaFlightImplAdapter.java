@@ -1,4 +1,4 @@
-package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.output.persistence;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;

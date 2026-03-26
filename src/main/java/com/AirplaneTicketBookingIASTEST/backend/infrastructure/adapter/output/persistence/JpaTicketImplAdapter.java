@@ -1,4 +1,4 @@
-package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.output.persistence;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket.Ticket;
 import com.AirplaneTicketBookingIASTEST.backend.domain.port.TicketRepositoryPortOut;
@@ -31,9 +31,9 @@ public class JpaTicketImplAdapter implements TicketRepositoryPortOut {
         TicketEntity ticketSaved = this.jpaTicketRepository.save(ticketToSave);
         return new Ticket(
                 ticketSaved.getId(),
-                ticketSaved.getTicketCode(),
                 ticketSaved.getPassengerDNI(),
                 ticketSaved.getCreatedDate(),
+                ticketSaved.getTicketCode(),
                 ticketSaved.getPrice()
         );
     }

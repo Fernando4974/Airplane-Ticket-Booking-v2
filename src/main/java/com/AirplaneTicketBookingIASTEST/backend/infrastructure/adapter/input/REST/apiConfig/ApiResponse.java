@@ -1,4 +1,4 @@
-package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.controllers.ApiConfig;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.apiConfig;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

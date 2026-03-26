@@ -1,4 +1,4 @@
-package com.AirplaneTicketBookingIASTEST.backend.application.service.booking.dto;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.dto.request.booking;
 
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.ticket.Ticket;
 import jakarta.validation.Valid;
@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @Valid
 @AllArgsConstructor @NoArgsConstructor
-public class RequestBooingDTO {
+public class RequestBooingDto {
     @NotNull
     Long idUser;
     @NotBlank

@@ -1,19 +1,19 @@
 package com.AirplaneTicketBookingIASTEST.backend.application.service.flight;
 
 import com.AirplaneTicketBookingIASTEST.backend.application.exception.FlightException;
-import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.CreateFlightUseCase;
+import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.CreateFlightUseCasePortIn;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.CreatedFlightDto;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.RequestCreateFlightDto;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-@Service
 @RequiredArgsConstructor
 @Slf4j
-public class CreateFlightService implements CreateFlightUseCase {
+public class CreateFlightServiceImplPortIn implements CreateFlightUseCasePortIn {
 
     private final FlightRepositoryPortOut flightRepositoryPortOut;
 

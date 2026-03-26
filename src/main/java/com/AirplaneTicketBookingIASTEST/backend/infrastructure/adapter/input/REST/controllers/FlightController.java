@@ -1,9 +1,9 @@
-package com.AirplaneTicketBookingIASTEST.backend.infrastructure.REST;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.controllers;
 
 import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.CreateFlightUseCasePortIn;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.CreatedFlightDto;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.RequestCreateFlightDto;
-import com.AirplaneTicketBookingIASTEST.backend.infrastructure.REST.ApiConfig.ApiResponse;
+import com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.apiConfig.ApiResponse;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

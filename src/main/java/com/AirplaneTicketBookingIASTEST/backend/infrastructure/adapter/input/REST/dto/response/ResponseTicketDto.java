@@ -1,4 +1,4 @@
-package com.AirplaneTicketBookingIASTEST.backend.application.service.ticket.dto;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Min;
@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 public class ResponseTicketDto {
     @NotBlank()
     private Long idTicket;
+    @NotBlank()
+    private String ticketCode;
     @NotBlank(message = "Passenger DNI cannot be empty")
     @Size(max = 30, message = "Passenger DNI must not exceed 30 characters")
     private String passengerDNI;
@@ -25,8 +27,9 @@ public class ResponseTicketDto {
     private BigDecimal price;
 
 
-    public ResponseTicketDto(Long idTicket, String passengerDNI, LocalDateTime createdDate, BigDecimal price) {
+    public ResponseTicketDto(Long idTicket,String ticketCode, String passengerDNI, LocalDateTime createdDate, BigDecimal price) {
         this.idTicket = idTicket;
+        this.ticketCode = ticketCode;
         this.passengerDNI = passengerDNI;
         this.createdDate = createdDate;
         this.price = price;

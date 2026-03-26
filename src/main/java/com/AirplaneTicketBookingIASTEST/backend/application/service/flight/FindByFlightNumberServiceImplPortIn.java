@@ -1,7 +1,7 @@
 package com.AirplaneTicketBookingIASTEST.backend.application.service.flight;
 
 import com.AirplaneTicketBookingIASTEST.backend.application.exception.FlightException;
-import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.FindFlightByFlightNumberUseCase;
+import com.AirplaneTicketBookingIASTEST.backend.application.port.flight.FindFlightByFlightNumberUseCasePortIn;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.flight.dto.FoundFlightDtoRequest;
 import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 import com.AirplaneTicketBookingIASTEST.backend.domain.port.FlightRepositoryPortOut;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class FindByFlightNumberServiceImpl implements FindFlightByFlightNumberUseCase {
+public class FindByFlightNumberServiceImplPortIn implements FindFlightByFlightNumberUseCasePortIn {
     private final FlightRepositoryPortOut flightRepositoryPortOut;
 
     @Override

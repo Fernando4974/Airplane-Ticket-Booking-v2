@@ -1,10 +1,9 @@
-package com.AirplaneTicketBookingIASTEST.backend.infrastructure.REST;
+package com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.controllers;
 
-import com.AirplaneTicketBookingIASTEST.backend.application.port.user.UserUseCases;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.user.UserServices;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.user.dto.RequestCreateUserDto;
 import com.AirplaneTicketBookingIASTEST.backend.application.service.user.dto.ResponseUserDto;
-import com.AirplaneTicketBookingIASTEST.backend.infrastructure.REST.ApiConfig.ApiResponse;
+import com.AirplaneTicketBookingIASTEST.backend.infrastructure.adapter.input.REST.apiConfig.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

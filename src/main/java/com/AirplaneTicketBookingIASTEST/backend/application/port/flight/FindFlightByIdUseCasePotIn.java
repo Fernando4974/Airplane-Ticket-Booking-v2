@@ -4,6 +4,6 @@ import com.AirplaneTicketBookingIASTEST.backend.domain.model.flight.Flight;
 
 import java.util.Optional;
 
-public interface FindFlightByIdUseCase {
+public interface FindFlightByIdUseCasePotIn {
     Optional<Flight> execute(Long id);
 }
